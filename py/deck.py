@@ -1,15 +1,14 @@
 import random
 
 CARDS_DECK_SIZE = 52
-
-suits = ["s", "h", "d", "c"]
-values = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
+SUITS = ["s", "h", "d", "c"]
+VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
 
 
 def createDeck():
     deck = []
-    for val in values:
-        for su in suits:
+    for val in VALUES:
+        for su in SUITS:
             deck.append(val + su)
     return deck
 
@@ -26,11 +25,17 @@ def shuffle(deck):
 
 
 class Cards:
-    cards = []
-
-    def create(self):
-        # Create a complete deck of cards
+    # having a constructor to initialize the instance state (attributes)
+    def __init__(self):
         self.cards = createDeck()
+
+    # creates the cards deck
+    #
+    # but, a better practice is to use the __init__ constructor
+    # for initializing the instances state (attributes)
+    # def create(self):
+    #     # Create a complete deck of cards
+    #     self.cards = createDeck()
 
     def shuffle(self):
         # Shuffle the order of cards in the deck
